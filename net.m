@@ -15,8 +15,8 @@ for i = 1:traning_set_size
     target = [target samples_traning{i}(:, motor_UPDRS_index)'];
 end
 
-eg = 8.0; % sum-squared error goal
-sc = 0.1;   % spread constant
+eg = 8.0; % sum-squared error goal 
+sc = 0.1; % spread constant
 RBF_net = newrb(input,target,eg,sc);
 
 %validation with traning set
@@ -26,7 +26,7 @@ for j = 1:traning_set_size
     input1 = [samples_traning{j}(:, 4:5)'; samples_traning{j}(:, 6)'; samples_traning{j}(:, 12)'];
     UPDRS1 = samples_traning{j}(:, motor_UPDRS_index)';
 
-    subplot(5,6,j);
+    subplot(6,7,j);
     output = RBF_net(input1);
     hold on;
     plot(time, UPDRS1, 'bo');
@@ -38,10 +38,10 @@ end
 figure(2)
 for k = 1:test_set_size
     time = samples_test{k}(:, test_time_index);
-    input2 = [samples_test{k}(:, 4:5)'; samples_test{k}(:, 6)'; samples_test{k}(:, 12)';];
+    input2 = [samples_test{k}(:, 4:5)'; samples_test{k}(:, 6)'; samples_test{k}(:, 12)'];
     UPDRS2 = samples_test{k}(:, motor_UPDRS_index)';
 
-    subplot(3,4,k);
+    subplot(6,7,k);
     output2 = RBF_net(input2);
     hold on;
     plot(time, UPDRS2, 'bo');
