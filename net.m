@@ -17,7 +17,6 @@ for i = 1:traning_set_size
     sex = samples{i}(:, sex_index);
     time = samples{i}(:, test_time_index);
     UPDRS = samples{i}(:, motor_UPDRS_index);
-    %plot(time, UPDRS,'bo');
 
     merged = [time'; UPDRS'];
     sorted = sortrows(merged', 1)';
@@ -27,11 +26,50 @@ for i = 1:traning_set_size
     target = [target UPDRS];
 end
 
-eg = 0.02; % sum-squared error goal
+eg = 0.05; % sum-squared error goal
 sc = 1;    % spread constant
-RBF_net = newrb(input,target,eg,sc);
+%RBF_net = newrb(input,target,eg,sc);
 
-output = RBF_net([age'; sex'; time]);
-hold on;
-plot(time, output,'r-');
-legend({'Target','Output'})
+%validation with traning set
+figure(1)
+for j = 1:traning_set_size
+    vector_from_test_set_index = j;
+    age = samples{vector_from_test_set_index}(:, age_index);
+    sex = samples{vector_from_test_set_index}(:, sex_index);
+    time = samples{vector_from_test_set_index}(:, test_time_index);
+    UPDRS = samples{vector_from_test_set_index}(:, motor_UPDRS_index);
+
+    merged = [time'; UPDRS'];
+    sorted = sortrows(merged', 1)';
+    time = sorted(1, :);
+    UPDRS = sorted(2, :);
+
+    subplot(5,6,j);
+    output = RBF_net([age'; sex'; time]);
+    hold on;
+    plot(time, UPDRS, 'bo');
+    plot(time, output,'r-');
+    %legend({'Target','Output'})
+end
+
+%validation with test set
+figure(2)
+for k = 1:test_set_size
+    vector_from_test_set_index = traning_set_size+k;
+    age = samples{vector_from_test_set_index}(:, age_index);
+    sex = samples{vector_from_test_set_index}(:, sex_index);
+    time = samples{vector_from_test_set_index}(:, test_time_index);
+    UPDRS = samples{vector_from_test_set_index}(:, motor_UPDRS_index);
+
+    merged = [time'; UPDRS'];
+    sorted = sortrows(merged', 1)';
+    time = sorted(1, :);
+    UPDRS = sorted(2, :);
+
+    subplot(3,4,k);
+    output = RBF_net([age'; sex'; time]);
+    hold on;
+    plot(time, UPDRS, 'bo');
+    plot(time, output,'r-');
+    legend({'Target','Output'})
+end
