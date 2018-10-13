@@ -73,6 +73,10 @@ sc = 1;    % spread constant
 
 Zmniejszenie liczby parametrów powoduje skrócenie czasu uczenia sieci, ale dalej pozostaje overfiting. Dodanie wieku i płci do parametrów na wejściu sieci spowodowało znaczne przyśpieszenie uczenia sieci. Dla parametrów: test\_time, Jitter(%), Shimmer(dB) sieć nie osiągała dostatecznie niskich wartości funkcji celu mimo dużej ilości epok. Po dodaniu age i sex sieć do parametrów wejściowych uzyskano znacząco przyśpieszono proces uczenia sieci. Zmniejszenie progu kwadratowej funkcji celu z 0.1 do 0.05 nie dało znaczących rezultatów.
 
+Wyłączenie czasu z wektora wejściowego i zmiana wybierania zbioru testowego na 24 pierwsze próbki z nieposorotwanych danych z bazy UCI spowodowało podwyższenie progu wartości średnio kwadratowego błędu do 8, co znacząco pogorszyło dopasowanie nawet dla zbioru uczącego.
+
+
+
 
 
 \begin{figure}
