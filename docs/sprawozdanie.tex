@@ -71,6 +71,10 @@ test\_set\_size = 12;\\
 eg = 0.1; % sum-squared error goal\\
 sc = 1;    % spread constant
 
+Zmniejszenie liczby parametrów powoduje skrócenie czasu uczenia sieci, ale dalej pozostaje overfiting. Dodanie wieku i płci do parametrów na wejściu sieci spowodowało znaczne przyśpieszenie uczenia sieci. Dla parametrów: test\_time, Jitter(%), Shimmer(dB) sieć nie osiągała dostatecznie niskich wartości funkcji celu mimo dużej ilości epok. Po dodaniu age i sex sieć do parametrów wejściowych uzyskano znacząco przyśpieszono proces uczenia sieci. Zmniejszenie progu kwadratowej funkcji celu z 0.1 do 0.05 nie dało znaczących rezultatów.
+
+
+
 \begin{figure}
 \centering
 	\includegraphics[width=0.90\textwidth]{fig1.jpg}\par\vspace{1cm}
