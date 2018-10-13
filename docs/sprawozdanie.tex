@@ -51,7 +51,7 @@ Celem projektu było zbadanie skuteczności radialnych sieci neuronowych do pred
 
 \subsection{Wykorzystane narzędzia}
 
-Do realizacji projektu wykorzystano środowisko Matlab, oraz dane z zbioru uczącego UCI Oxford Parkinson's Disease Telemonitoring Dataset, udostępnione przez autorów \cite{zbior_uczacy}.
+Do realizacji projektu wykorzystano środowisko Matlab, oraz dane z zbioru uczącego UCI Oxford Parkinson's Disease Telemonitoring Dataset, udostępnione przez autorów \cite{zbior uczacy}.
 
 \subsection{Aspekt medyczny}
 
@@ -61,48 +61,71 @@ Coś o Parkinsonie i danych.
 
 \section{Osiągnięte rezultaty}
 
+1) 13.10.2018 \\
+
+
+number\_of\_patients = 42\\
+traning\_set\_size = 30\\
+test\_set\_size = 12;\\
+
+eg = 0.1; % sum-squared error goal\\
+sc = 1;    % spread constant
+
+\begin{figure}
+\centering
+	\includegraphics[width=0.90\textwidth]{fig1.jpg}\par\vspace{1cm}
+\caption{Rezultaty dla zbioru uczącego}
+	\label{fig:features}
+\end{figure}
+
+\begin{figure}
+\centering
+	\includegraphics[width=0.90\textwidth]{fig2.jpg}\par\vspace{1cm}
+\caption{Rezultaty dla zbioru testowego}
+	\label{fig:features}
+\end{figure}
+
 \section{Wnioski}
 
 \newpage
 \begin{thebibliography}{9}
 
-\bibitem{zbior_uczacy}
+\bibitem{zbior uczacy}
 A Tsanas, MA Little, PE McSharry, LO Ramig (2009) 
 'Accurate telemonitoring of Parkinson’s disease progression by non-invasive speech tests', 
 IEEE Transactions on Biomedical Engineering (to appear). 
-\\\texttt{https://archive.ics.uci.edu/ml/datasets/Parkinsons+Telemonitoring}
+\\\texttt{https://archive.ics.uci.edu/ml/datasets/Parkinsons+\\Telemonitoring}
 
-\bibitem{zbior_uczacy_1}
+\bibitem{zbior uczacy1}
 Little MA, McSharry PE, Hunter EJ, Ramig LO (2009), 
 'Suitability of dysphonia measurements for telemonitoring of Parkinson's disease', 
 IEEE Transactions on Biomedical Engineering, 56(4):1015-1022 
 
-\bibitem{zbior_uczacy_2}
+\bibitem{zbior uczacy2}
 Little MA, McSharry PE, Roberts SJ, Costello DAE, Moroz IM. 
 'Exploiting Nonlinear Recurrence and Fractal Scaling Properties for Voice Disorder Detection', 
-BioMedical Engineering OnLine 2007, 6:23 (26 June 2007) 
+BioMedical Engineering OnLine, 26 June 2007
 
-\bibitem{Osowski}
+\bibitem{Osowski ujecie algorytmiczne}
 Stanisław Osowski.
 \textit{Sieci Neuronowe w ujęciu algorytmicznym}
 Wydawnictwo Naukowo-Techniczne, Warszawa 1996
 
-\bibitem{Osowski}
+\bibitem{Osowski przetwarzanie informacji}
 Stanisław Osowski.
 \textit{Sieci Neuronowe do przetwarzania informacji}
 Oficyna Wydawnicza Politechniki Warszawskiej, Warszawa 2006
 
-\bibitem{
+\bibitem{Spread Constant}
 Hongfa Wang, Xinai Xu, Zhejiang
 Water Conservancy and Hydropower College
 Determination of Spread Constant in RBF Neural Network by Genetic
 Algorithm 
 \textit{http://www.globalcis.org/ijact/ppl/IJACT3017PPL.pdf}
 
-
 \bibitem{matlab}
 Oficjalna dokumentacja Mathworks Deep Learning Toolbox. 
-\\\texttt{https://www.mathworks.com/help/deeplearning/examples/radial-basis\\-approximation.html}
+\\\texttt{https://www.mathworks.com/help/deeplearning/examples/radial-\\basis-approximation.html}
 
 \bibitem{owards Data Sience}
 Towards Data Science blog
