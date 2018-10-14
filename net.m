@@ -22,29 +22,29 @@ RBF_net = newrb(input,target,eg,sc);
 %validation with traning set
 figure(1)
 for j = 1:training_set_size
-    time = samples_training{j}(:, test_time_index)';
+    time1 = samples_training{j}(:, test_time_index)';
     input1 = samples_training{j}(:, 3:21)';
     UPDRS1 = samples_training{j}(:, motor_UPDRS_index)';
 
     %subplot(6,7,j);
     output = RBF_net(input1);
     hold on;
-    plot(time, UPDRS1, 'bo');
-    plot(time, output,'r-');
+    plot(time1, UPDRS1, 'bo');
+    plot(time1, output,'r-');
     %legend({'Target','Output'})
 end
 
 %validation with test set
 figure(2)
 for k = 1:test_set_size
-    time = samples_test{k}(:, test_time_index);
+    time2 = samples_test{k}(:, test_time_index);
     input2 = samples_test{k}(:, 3:21)';
     UPDRS2 = samples_test{k}(:, motor_UPDRS_index)';
 
     %subplot(6,7,k);
     output2 = RBF_net(input2);
     hold on;
-    plot(time, UPDRS2, 'bo');
-    plot(time, output2,'r-');
+    plot(time2, UPDRS2, 'bo');
+    plot(time2, output2,'r-');
     %legend({'Target','Output'})
 end
