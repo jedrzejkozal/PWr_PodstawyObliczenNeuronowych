@@ -1,18 +1,18 @@
-[samples_traning, samples_test] = read_data();
+[samples_training, samples_test] = read_data();
 
 motor_UPDRS_index = 1;
 total_UPDRS_index = 2;
 test_time_index = 3;
 
 number_of_patients = 42;
-traning_set_size = size(samples_traning, 2);
+training_set_size = size(samples_training, 2);
 test_set_size = size(samples_test, 2);
 
 input = [];
 target = [];
-for i = 1:traning_set_size
-    input = [input [samples_traning{i}(:, 4:5)'; samples_traning{i}(:, 6)'; samples_traning{i}(:, 12)'] ]; 
-    target = [target samples_traning{i}(:, motor_UPDRS_index)'];
+for i = 1:training_set_size
+    input = [input [samples_training{i}(:, 4:5)'; samples_training{i}(:, 6)'; samples_training{i}(:, 12)'] ]; 
+    target = [target samples_training{i}(:, motor_UPDRS_index)'];
 end
 
 eg = 8.0; % sum-squared error goal 
@@ -21,10 +21,10 @@ RBF_net = newrb(input,target,eg,sc);
 
 %validation with traning set
 figure(1)
-for j = 1:traning_set_size
-    time = samples_traning{j}(:, test_time_index)';
-    input1 = [samples_traning{j}(:, 4:5)'; samples_traning{j}(:, 6)'; samples_traning{j}(:, 12)'];
-    UPDRS1 = samples_traning{j}(:, motor_UPDRS_index)';
+for j = 1:training_set_size
+    time = samples_training{j}(:, test_time_index)';
+    input1 = [samples_training{j}(:, 4:5)'; samples_training{j}(:, 6)'; samples_training{j}(:, 12)'];
+    UPDRS1 = samples_training{j}(:, motor_UPDRS_index)';
 
     subplot(6,7,j);
     output = RBF_net(input1);
