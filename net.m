@@ -23,7 +23,7 @@ RBF_net = newrb(input,target,eg,sc);
 figure(1)
 for j = 1:training_set_size
     time = samples_training{j}(:, test_time_index)';
-    input1 = samples_training{i}(:, 3:21)';
+    input1 = samples_training{j}(:, 3:21)';
     UPDRS1 = samples_training{j}(:, motor_UPDRS_index)';
 
     %subplot(6,7,j);
