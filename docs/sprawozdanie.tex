@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 
 \usepackage{polski}
 \usepackage[utf8]{inputenc}
@@ -8,6 +8,7 @@
 \usepackage{caption}
 \usepackage{array}
 \usepackage{pbox}
+\usepackage{amsmath}
 
 \newcommand\tab[1][1cm]{\hspace*{#1}}
 
@@ -59,8 +60,91 @@ Parkinson jest zwyrodnieniową chorobą ośrodkowego układu nerwowego. Występu
 
 \section{Zarys podstaw teoretycznych}
 
+\subsection{Topologia radialnych sieci neuronowych}
 
+Radialne sieci neuronowe są specjalną odmianą perceptronów wielowarstwowych. Tak jak one realizują bowiem odwzorowanie zbioru wejściowego w wyjściowy, robią to jednak poprzez dopasowanie wielu pojedynczych funkcji aproksymujących do wartości zadanych. Odwzorowania takie ważne są tylko w wąskim obszarze przestrzeni wielowymiarowej, zatem ich suma jest odwzorowaniem pełnego zbioru danych. Neurony warstwy ukrytej w sieciach radialnych realizują funkcję zmieniającą się radialnie wokół wybranego centrum \textsl{c} i przyjmującą wartości niezerowe jedynie w otoczeniu tego punktu. Realizację taką przedstawia poniższy rysunek:
 
+\begin{figure}[h!]
+\centering
+	\includegraphics[width=0.5\textwidth]{rbf-gauss.jpeg}\par\vspace{1cm}
+\caption{Realizacja funkcji zmieniającej się radialnie}
+	\label{fig:features}
+\end{figure}
+
+Funkcje takie, nazywane radialnymi funkcjami bazowymi, przyjmują postać: 
+
+\[ \varphi(x) = \varphi(||x-c||) \]
+
+Rolę neuronu ukrytego można zatem sprowadzić do odwzorowania radialnego przestrzeni wokół jednego zadanego punktu lub grupy takich punktów stanowiących klaster. Odwzorowanie całej przestrzeni wielowymiarowej przez neurony warstwy wyjściowej jest więc możliwe dzięki superpozycji sygnałów pochodzących od wszystkich neuronów ukrytych. Dobór liczby neuronów warstwy zależy ściśle od przyjętego błędu, przy czym poszczególne neurony dodawane są iteracyjnie, po jednym neuronie w każdej iteracji, aż do osiągnięcia pożądanego błędu średniokwadratowego. Maksymalna liczba neuronów w warstwie ukrytej nie może przekroczyć  liczby wektorów podanych na wejście sieci. Typowa sieć radialna jest modelem zawierającym warstwę wejściową przyjmującą sygnały opisywane wektorem wejściowym \textbf{x}, warstwę ukrytą neuronów radialnych oraz warstwę wyjściową złożoną z neuronów liniowych. Przykład takiej topologii przestawiono na poniższym rysunku:
+
+\begin{figure}[h!]
+\centering
+	\includegraphics[width=0.5\textwidth]{rbf.png}\par\vspace{1cm}
+\caption{Topologia sieci radialnej}
+	\label{fig:features}
+\end{figure}
+
+\subsection{Wagi neuronów w sieci radialnej}
+
+Przyjmując \textsl{p} neuronów ukrytych połączonych wagami \textsl{$w_i$} z liniowymi neuronami wyjściowymi oraz model sieci radialnej o jednym wyjściu i \textsl{p} parach uczących ($x_i$, $d_i$), a także zakładając \textsl{p} centrów umieszczonych w kolejnych wektorach $x_i$ (tj. $c_i = x_i$) otrzymujemy układ równań liniowych względem wag $w_i$. Układ ten można zapisać w postaci macierzowej:
+
+\[
+\begin{bmatrix}
+    \varphi_{11}  & \varphi_{12}  & \dots & \varphi_{1p} \\
+    \varphi_{21}  & \varphi_{22} &  \dots & \varphi_{2p} \\
+    \hdotsfor{4} \\
+    \varphi_{p1}  & \varphi_{p2} &  \dots & \varphi_{pp}
+\end{bmatrix}
+\begin{bmatrix}
+	w_1 \\
+	w_2 \\
+	\dots \\
+	w_p
+\end{bmatrix}
+=
+\begin{bmatrix}
+	d_1 \\
+	d_2 \\
+	\dots \\
+	d_p
+\end{bmatrix}
+\]
+
+gdzie:
+
+\[ \varphi_{ji} = \varphi(||x_j-x_i||) \]
+
+dotyczy funkcji radialnej w centrum $x_i$ przy wektorze wymuszającym $x_j$. Oznaczając macierz o elementach $\varphi_{ji}$ jako $\Phi$ i przyjmując oznaczenia wektorów $w = [w_1, w_2, ..., w_p]^T$, $d = [d_1, d_2, ..., d_p]^T$ równanie może być zapisywane w postaci macierzowej:
+
+\[ \Phi w = d \]
+
+Istnieje rozwiązanie równania w postaci:
+
+\[ w = \Phi^{-1} d \]
+
+pozwalające określić wektor wag \textsl{w} neuronu wyjściowego sieci.
+
+\subsection{Algorytmy uczenia sieci radialnych}
+
+Możemy wyróżnić trzy grupy algorytmów uczących mających zastosowanie w procesach uczenia sieci radialnych:
+
+\begin{enumerate}
+
+\item Algorytmy probabilistyczne doboru parametrów funkcji radialnych
+\item Algorytmy hybrydowe 
+\item Algorytmy oparte na wstecznej propagacji błędu
+
+\end{enumerate}
+
+W projekcie zastosowano algorytm uczenia oparty na mechanizmie wstecznej propagacji błędu. Podobnie jak w sieciach sigmoidalnych, jego podstawę stanowi funkcja celu definiowana dla wszystkich \textsl{p} par neuronów uczących ($x_j$, $d_j$):
+
+\[ E = \frac{1}{2} \sum_{j=1}^{p} [\sum_{i=0}^{K} w_i\varphi_{i}(x_{j} - d_j)]^2 \]
+
+którą to, zakładając jeden wzorzec uczący ($x$, $d$) można uprościć do postaci:
+
+\[ E = \frac{1}{2}  [\sum_{i=0}^{K} w_i\varphi_{i}(x) - d]^2 \]
+
+\newpage
 \section{Osiągnięte rezultaty}
 
 1) 13.10.2018 \\
