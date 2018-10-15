@@ -47,17 +47,19 @@
 
 \subsection{Cel projektu}
 
-Celem projektu było zbadanie skuteczności radialnych sieci neuronowych do predykcji przebiegu choroby Parkinsona.
+Celem projektu było zbadanie skuteczności radialnych sieci neuronowych w predykcji przebiegu choroby Parkinsona.
 
 \subsection{Wykorzystane narzędzia}
 
-Do realizacji projektu wykorzystano środowisko Matlab, oraz dane z zbioru uczącego UCI Oxford Parkinson's Disease Telemonitoring Dataset, udostępnione przez autorów \cite{zbior uczacy}.
+Do realizacji projektu wykorzystano środowisko Matlab, w tym Deep Learning Toolbox zawierający funkcje niezbędne do tworzenia radialnych sieci neuronowych oraz dane ze zbioru uczącego UCI Oxford Parkinson's Disease Telemonitoring Dataset, udostępnionego przez autorów do celów naukowo-badawczych \cite{zbioruczacy}. 
 
 \subsection{Aspekt medyczny}
 
-Coś o Parkinsonie i danych.
+Parkinson jest zwyrodnieniową chorobą ośrodkowego układu nerwowego. Występuje ona najczęściej u osób starszych, głównie mężczyzn i rozwija się przez kilkanaście lat. Jej objawami są między innymi: osłabienie, zmęczenie, spowolnienie ruchowe, drżenie mięśni czy też kłopoty z wykonywaniem codziennych czynności, takich jak wstawanie, mycie, jedzenie, ubieranie się.  Objawy te oraz sposób rozwoju choroby pozwalają na stworzenie systemów predykcyjnych umożliwiających ciągłe monitorowanie stanu zdrowia pacjentów. Zbiór uczący użyty w projekcie wykorzystuje pomiary głosu pacjentów wykonane przez urządzenie telemedyczne służące do śledzenia przebiegu choroby w sześciomiesięcznym przedziale czasu. Dla pojedynczego pacjenta zawiera on parametry takie jak: identyfikator, wiek oraz płeć, interwały czasowe wykonanych pomiarów, szesnaście parametrów opisujących nagrany dźwięk, a także parametry wynikowe UPDRS (Unified Parkinson's Disease Rating Scale) opisujące postęp choroby. W zbiorze znajdują się dane zawierające informację o 42 różnych pacjentach, po około 140 pomiarów dla pojedynczej osoby, co łącznie daje około 5000 rekordów.
 
 \section{Zarys podstaw teoretycznych}
+
+
 
 \section{Osiągnięte rezultaty}
 
@@ -98,18 +100,18 @@ Wyłączenie czasu z wektora wejściowego i zmiana wybierania zbioru testowego n
 \newpage
 \begin{thebibliography}{9}
 
-\bibitem{zbior uczacy}
+\bibitem{zbioruczacy}
 A Tsanas, MA Little, PE McSharry, LO Ramig (2009) 
 'Accurate telemonitoring of Parkinson’s disease progression by non-invasive speech tests', 
 IEEE Transactions on Biomedical Engineering (to appear). 
 \\\texttt{https://archive.ics.uci.edu/ml/datasets/Parkinsons+\\Telemonitoring}
 
-\bibitem{zbior uczacy1}
+\bibitem{zbior-uczacy1}
 Little MA, McSharry PE, Hunter EJ, Ramig LO (2009), 
 'Suitability of dysphonia measurements for telemonitoring of Parkinson's disease', 
 IEEE Transactions on Biomedical Engineering, 56(4):1015-1022 
 
-\bibitem{zbior uczacy2}
+\bibitem{zbior-uczacy2}
 Little MA, McSharry PE, Roberts SJ, Costello DAE, Moroz IM. 
 'Exploiting Nonlinear Recurrence and Fractal Scaling Properties for Voice Disorder Detection', 
 BioMedical Engineering OnLine, 26 June 2007
