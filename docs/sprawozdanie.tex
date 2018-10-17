@@ -144,6 +144,45 @@ którą to, zakładając jeden wzorzec uczący ($x$, $d$) można uprościć do p
 
 \[ E = \frac{1}{2}  [\sum_{i=0}^{K} w_i\varphi_{i}(x) - d]^2 \]
 
+Należy przyjąć odpowiednie oznaczenia wyjść poszczególnych neuronów:
+
+\begin{flushleft}
+$x_m$ - wartość m-tego wejścia \newline
+$h_{ij}$ - wartości (i,j) macierzy wyjść neuronów ukrytych, gdzie i - numer warstwy ukrytej, j - numer neuronu w warstwie \newline
+$y_p$ - wartość p-tego wyjścia \newline
+\end{flushleft}
+
+
+Zależności pomiędzy warstwami neuronów można przedstawić jako: \newline
+
+\begin{flushleft}
+$h_{1j} = f(\sum_{m=1}^{n} w_{mj}x_m)$ \newline
+$h_{2j} = f(\sum_{m=1}^{n} w_{mj}h_{1j})$ \newline
+... \newline
+$h_{nj} = f(\sum_{m=1}^{n} w_{mj}h_{(n-1)j})$ \newline
+$y_p = f(\sum_{m=1}^{n} w_{mj}h_{nj})$ \newline
+\end{flushleft}
+
+Kolejne kroki algorytmu można opisać następująco:
+
+\begin{enumerate}
+
+\item \textsl{podanie przykładu ze zbioru uczącego na wejście sieci,}
+
+\item \textsl{wyznaczenie wartości wyjść warstwy wyjściowej,}
+
+\item \textsl{obliczenie wektora błędu - różnicy pomiędzy wartościami założonymi, a otrzymanymi,}
+
+\item \textsl{obliczenie sumy kwadratów elementów wektora błędu,}
+
+\item \textsl{sprawdzenie, czy próg błędu został osiągnięty - warunek stopu algorytmu,}
+
+\item \textsl{wykonanie propagacji wstecznej,}
+
+\item \textsl{aktualizacja wag pomiędzy warstwami ukrytą i wejściową, a następnie pomiędzy wejściową i ukrytą.}
+
+\end{enumerate}
+
 \newpage
 \section{Osiągnięte rezultaty}
 
