@@ -200,7 +200,17 @@ Zmniejszenie liczby parametrów powoduje skrócenie czasu uczenia sieci, ale dal
 
 Wyłączenie czasu z wektora wejściowego i zmiana wybierania zbioru testowego na 24 pierwsze próbki z nieposorotwanych danych z bazy UCI spowodowało podwyższenie progu wartości średnio kwadratowego błędu do 8, co znacząco pogorszyło dopasowanie nawet dla zbioru uczącego.
 
+\newpage
 
+Kilka spostrzeżeń:
+
+\begin{itemize}
+\item gdy mamy nieokrojone dane łatwo jest nauczyć sieć dla małej ilości pacjentów, dla dużej natomiast trwa to bardzo długo i efekty są mizerne
+\item gdy mamy okrojone dane nie jest możliwe nauczenie sieci dla małej ilości pacjentów, dla dużej natomiast trwa to dość szybko, skuteczność natomiast jest średnia
+\item trzeba zebrać dużo screenshotów
+\item trzeba zweryfikować nabazgraną przeze mnie teorię, w szczególności backpropagation - nie jestem pewien, czy dokładnie taka postać jest wykorzystywana w RBF
+\item trzeba poprawić estetykę tego sprawka
+\end{itemize}
 
 
 
