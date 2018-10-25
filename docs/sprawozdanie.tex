@@ -186,7 +186,11 @@ Kolejne kroki algorytmu można opisać następująco:
 \newpage
 \section{Zbiór uczący}
 
+\subsection{Opis zawartości zbioru}
+
 Do realizacji zadania wykorzystano zbiór uczący Parkinsons Telemonitoring Data Set dostępny w repozytorium UCI. Zbiór zawiera pomiary głosów pacjentów we wczesnym etapie choroby Parkinsona. Na bazę składa się 5875 próbek pobranych dla 42 pacjentów.
+
+\subsection{Opis parametrów}
 
 Kolumny z danymi pacjentów zawierają kolejno:
 \begin{itemize}
@@ -213,23 +217,28 @@ Kolumny z danymi pacjentów zawierają kolejno:
 Celem projektu było określenie UPDRS motorycznego i całkowitego na podstawie dostępnych pomiarów parametru głosu pacjentów. Na rys \ref{data visualisation} przedstawiono zależność wszystkich parametrów od czasu dla pacjentów 1, 11, 21, 31 i 41. Na wykresach 1 i 2 przedstawiono motoryczny i całkowity UPDRS. Na wykresie 3 przedstawiono czas, stąd zaobserwowana zależność liniowa dla wszystkich pacjentów. Na wykresach 4 i 5 przedstawiono wiek i płeć pacjentów - stałe wartości w czasie pomiaru. Na pozostałych wykresach przedstawiono kolejne parametry związane z dźwiękiem wymienione powyżej.
 
 \newpage
-\section{Osiągnięte rezultaty}
+\section{Założenia eksperymentu}
+Opis podziału na zbiory uczące i testowe.
 
-1) 13.10.2018 \\
-
-
-number\_of\_patients = 42\\
-traning\_set\_size = 30\\
-test\_set\_size = 12;\\
-
-eg = 0.1; % sum-squared error goal\\
-sc = 1;    % spread constant
-
-Zmniejszenie liczby parametrów powoduje skrócenie czasu uczenia sieci, ale dalej pozostaje overfiting. Dodanie wieku i płci do parametrów na wejściu sieci spowodowało znaczne przyśpieszenie uczenia sieci. Dla parametrów: test\_time, Jitter(%), Shimmer(dB) sieć nie osiągała dostatecznie niskich wartości funkcji celu mimo dużej ilości epok. Po dodaniu age i sex sieć do parametrów wejściowych uzyskano znacząco przyśpieszono proces uczenia sieci. Zmniejszenie progu kwadratowej funkcji celu z 0.1 do 0.05 nie dało znaczących rezultatów.
-
-Wyłączenie czasu z wektora wejściowego i zmiana wybierania zbioru testowego na 24 pierwsze próbki z nieposorotwanych danych z bazy UCI spowodowało podwyższenie progu wartości średnio kwadratowego błędu do 8, co znacząco pogorszyło dopasowanie nawet dla zbioru uczącego.
 
 \newpage
+
+\section{Osiągnięte wyniki}
+Wyniki eksperymentów bez zmniejszenia pacjentów i bez usunięcia duplikatów.
+
+\subsection{Zmniejszenie liczby pacjentów}
+Zaobserowano znaczącą poprawę osiąganych wyników przy zredukowanej liczbie pacjentów w zbiorach uczących i treningowych.
+
+\subsection{Usunięcie duplikatów próbek}
+Po przeanalizowaniu zawartości zbioru uczącego zauważono wiele powtarzających się próbek o bardzo zbliżonych wartościach czasu i sygnałów. 
+
+Przykładowo dla pierwszego pacjenta w czasie: 5.6431, 5.6438, 5.6451, 5.6458, 5.6458 wartości jitter(\%) to 0.00348, 0.00413, 0.00217, 0.00294, 0.00250. Bardzo zbliżone wartości próbek mogą powodwać overfitting. Zbadano zachowanie i osiągane wyniki sieci dla co piątej próbki z dostępnego zbioru w zbiorze uczącym.
+
+\subsection{Zmniejszenie liczby pacjentów i usunięcie duplikatów}
+Połączenie poprzednich przypadków.
+
+\newpage
+\section{Wnioski}
 
 Kilka spostrzeżeń:
 
@@ -240,30 +249,6 @@ Kilka spostrzeżeń:
 \item trzeba zweryfikować nabazgraną przeze mnie teorię, w szczególności backpropagation - nie jestem pewien, czy dokładnie taka postać jest wykorzystywana w RBF
 \item trzeba poprawić estetykę tego sprawka
 \end{itemize}
-
-
-
-\begin{figure}
-\centering
-	\includegraphics[width=0.90\textwidth]{fig1.jpg}\par\vspace{1cm}
-\caption{Rezultaty dla zbioru uczącego}
-	\label{fig:features}
-\end{figure}
-
-\begin{figure}
-\centering
-	\includegraphics[width=0.90\textwidth]{fig2.jpg}\par\vspace{1cm}
-\caption{Rezultaty dla zbioru testowego}
-	\label{fig:features}
-\end{figure}
-
-\section{Wnioski}
-
-\newpage
-\subsection{Usunięcie duplikatów próbek}
-Po przeanalizowaniu zawartości zbioru uczącego zauważono wiele powtarzających się próbek o bardzo zbliżonych wartościach czasu i sygnałów. 
-
-Przykładowo dla pierwszego pacjenta w czasie: 5.6431, 5.6438, 5.6451, 5.6458, 5.6458 wartości jitter(\%) to 0.00348, 0.00413, 0.00217, 0.00294, 0.00250. Bardzo zbliżone wartości próbek mogą powodwać overfitting. Zbadano zachowanie i osiągane wyniki sieci dla co piątej próbki z dostępnego zbioru w zbiorze uczącym.
 
 \newpage
 \begin{thebibliography}{9}
