@@ -260,6 +260,12 @@ Kilka spostrzeżeń:
 \section{Wnioski}
 
 \newpage
+\subsection{Usunięcie duplikatów próbek}
+Po przeanalizowaniu zawartości zbioru uczącego zauważono wiele powtarzających się próbek o bardzo zbliżonych wartościach czasu i sygnałów. 
+
+Przykładowo dla pierwszego pacjenta w czasie: 5.6431, 5.6438, 5.6451, 5.6458, 5.6458 wartości jitter(\%) to 0.00348, 0.00413, 0.00217, 0.00294, 0.00250. Bardzo zbliżone wartości próbek mogą powodwać overfitting. Zbadano zachowanie i osiągane wyniki sieci dla co piątej próbki z dostępnego zbioru w zbiorze uczącym.
+
+\newpage
 \begin{thebibliography}{9}
 
 \bibitem{zbioruczacy}
