@@ -184,6 +184,35 @@ Kolejne kroki algorytmu można opisać następująco:
 \end{enumerate}
 
 \newpage
+\section{Zbiór uczący}
+
+Do realizacji zadania wykorzystano zbiór uczący Parkinsons Telemonitoring Data Set dostępny w repozytorium UCI. Zbiór zawiera pomiary głosów pacjentów we wczesnym etapie choroby Parkinsona. Na bazę składa się 5875 próbek pobranych dla 42 pacjentów.
+
+Kolumny z danymi pacjentów zawierają kolejno:
+\begin{itemize}
+	\item id pacjenta
+	\item wiek pacjenta
+	\item płeć pacjenta (0 - mężczyzna, 1 - kobieta)
+	\item czas od zgłoszenia się do testów
+	\item UPDRS motoryczny (Unified Parkinson's Disease Rating Scale)
+	\item UPDRS całkowity
+	\item Jitter(\%), Jitter(Abs), Jitter:RAP, Jitter:PPQ5, Jitter:DDP - pomiary zmiany częstotliwości podstawowej (drganie)
+	\item NHR, HNR (Noise to Harmonics Ratio, Harmonic to Noise Ratio) -  Dwa pomiary stosunku zakłóceń do harmonicznych
+	\item Shimmer, Shimmer(dB), Shimmer:APQ3, Shimmer:APQ5, Shimmer:APQ11, Shimmer:DDA - pomiary zmiany amplitudy
+	\item RPDE - Miara nieliniowej dynamicznej złożoności systemu
+	\item DFA - (Detrended Fluctuation Analysis) Parametr opisujący samopodobieństwo sygnału
+	\item PPE - Nieliniowa miara wariacji częstotliwości podostawowej
+\end{itemize}
+
+\begin{figure}
+	\includegraphics[width=0.90\textwidth]{data.jpg}\par\vspace{1cm}
+\caption{Wizualizacja zbioru uczącego}
+\label{data visualisation}
+\end{figure}
+
+Celem projektu było określenie UPDRS motorycznego i całkowitego na podstawie dostępnych pomiarów parametru głosu pacjentów. Na rys \ref{data visualisation} przedstawiono zależność wszystkich parametrów od czasu dla pacjentów 1, 11, 21, 31 i 41. Na wykresach 1 i 2 przedstawiono motoryczny i całkowity UPDRS. Na wykresie 3 przedstawiono czas, stąd zaobserwowana zależność liniowa dla wszystkich pacjentów. Na wykresach 4 i 5 przedstawiono wiek i płeć pacjentów - stałe wartości w czasie pomiaru. Na pozostałych wykresach przedstawiono kolejne parametry związane z dźwiękiem wymienione powyżej.
+
+\newpage
 \section{Osiągnięte rezultaty}
 
 1) 13.10.2018 \\
