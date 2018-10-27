@@ -218,12 +218,27 @@ Celem projektu było określenie UPDRS motorycznego i całkowitego na podstawie 
 
 \newpage
 \section{Założenia eksperymentu}
-Opis podziału na zbiory uczące i testowe.
 
-\subsection{Usunięcie duplikatów próbek}
-Po przeanalizowaniu zawartości zbioru uczącego zauważono wiele powtarzających się próbek o bardzo zbliżonych wartościach czasu i sygnałów. 
+\subsection{Podział na zbiór uczący i testowy}
+ Przyjęto zbiór testowy jako pierwsze 24 próbki dostępne dla każdego pacjenta. Wszystkie próbki nienależące do zbioru testowego wykorzystano jako zbiór uczący. Liczba wszystkich próbek dostępnych dla i-tego pacjenta nie jest stała, przez co zbiory uczące dla różnych pacjentów zawierały różną liczbę elementów. Minimalna liczba próbek w zbiorze uczącym to 100 próbek dla pojedynczego pacjenta.
+ 
+Przyjęcie takiej metodyki, było podyktowane przez niską liczbę pacjentów w wykorzystanym zbiorze. Przy 42 pacjentach wydzielanie całych serii pomiarowych wybranych pacjentów poważnie ograniczyłoby zbiór uczący i mogłoby spowodować kłopoty z uogólnieniem wyników przez sieć.
 
-Przykładowo, dla pierwszego pacjenta w czasach: 5.6431, 5.6438, 5.6451, 5.6458, 5.6458 występujące wartości parametru jitter(\%) to 0.00348, 0.00413, 0.00217, 0.00294, 0.00250. Bardzo zbliżone wartości próbek mogą powodować nadmierne dopasowanie sieci do danych uczących.. Przygotowano dwa zestawy danych: z duplikatami i bez duplikatów próbek oraz zbadano zachowanie sieci dla obu zbiorów przy zmiennej ilości pacjentów.
+Wszystkie próbki w zbiorze uczącym i testowym zostały posortowane względem czasu w celu ułatwienia analizy uzyskanych wyników.
+
+\subsection{Opis przyjętych metryk}
+
+Do opisu wyników osiąganych dla zbioru uczącego i testowego wykorzystano MSE. W sprawozdaniu wszystkie wartości MSE dla zbioru uczącego zostały obliczone automatycznie przez toolbox matlaba. W analizowanym zbiorze MSE można je zdefniować jako:
+
+\begin{equation}
+ 	MSE = \frac{1}{n-1} \sum_{i=1}^{n} \sum_{j=1}^{m_i} (y_{i_j} - F(u_{i_j}))^2
+\end{equation}
+ 
+ gdzie:\\
+ $n$ - liczba pacjentów \\
+ $m_i$ - liczba próbek dla i-tego pacjenta \\
+ $y_{i_j}$ - oczekiwane wyjście dla i-tego pacjenta i j-tej próbki \\
+ $F(u_{i_j})$ - wyjście sieci neuronowej dla i-tego pacjenta i j-tej próbki
 
 \newpage
 
