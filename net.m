@@ -1,16 +1,16 @@
 clear all;
 
 [samples_training_with_duplicates, samples_test_with_duplicates] = read_data();
-%[samples_training, samples_test] = remove_duplicates(samples_training_with_duplicates, samples_test_with_duplicates);
-samples_training = samples_training_with_duplicates;
-samples_test = samples_test_with_duplicates;
+[samples_training, samples_test] = remove_duplicates(samples_training_with_duplicates, samples_test_with_duplicates);
+%samples_training = samples_training_with_duplicates;
+%samples_test = samples_test_with_duplicates;
 
 motor_UPDRS_index = 1;
 total_UPDRS_index = 2;
 test_time_index = 3;
 
 number_of_patients = 42;
-classes = 16;
+classes = 42;
 training_set_size = classes;%size(samples_training, 2)
 test_set_size = classes;%size(samples_test, 2)
 
@@ -27,11 +27,11 @@ for i = 1:training_set_size
 end
 
 eg = 1e-10; % sum-squared error goal 
-sc = 10; % spread constant
+sc = 50; % spread constant
 RBF_net = newrb(input,target,eg,sc);
 
-subplot_x = 4;
-subplot_y = 4;
+subplot_x = 6;
+subplot_y = 7;
 
 %validation with traning set
 figure(1)
@@ -48,7 +48,7 @@ for j = 1:training_set_size
     title(['Training data, number of patients: ', num2str(classes)]);
     xlabel('Time');
     ylabel('Motor UPDRS index');
-    legend({'Data','Net output'},'Location','northwest')
+    %legend({'Data','Net output'},'Location','northwest')
 end
 
 %validation with test set
@@ -66,5 +66,5 @@ for k = 1:test_set_size
     title(['Test data, number of patients: ', num2str(classes)]);
     xlabel('Time');
     ylabel('Motor UPDRS index');
-    legend({'Data','Net output'},'Location','northwest')
+    %legend({'Data','Net output'},'Location','northwest')
 end

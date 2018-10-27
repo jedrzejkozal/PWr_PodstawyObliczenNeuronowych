@@ -247,6 +247,74 @@ Parametry uczenia:
 \item Spread constant: $10$
 \end{itemize}
 
+\begin{figure}[h!]
+
+\centering
+\includegraphics[width=0.8\textwidth]{mse-normal-1.png}
+\caption{MSE dla 1 pacjenta}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\includegraphics[width=1.05\textwidth]{training-normal-1.png}
+\caption{Zbiór treningowy, 1 pacjent}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\includegraphics[width=1.05\textwidth]{test-normal-1.png}
+\caption{Zbiór testowy, 1 pacjent}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\centering
+\includegraphics[width=0.9\textwidth]{mse-normal-3.png}
+\caption{MSE dla 3 pacjentów}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\includegraphics[width=1.05\textwidth]{training-normal-3.png}
+\caption{Zbiór treningowy, 3 pacjentów}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\includegraphics[width=1.0\textwidth]{test-normal-3.png}
+\caption{Zbiór testowy, 3 pacjentów}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\centering
+\includegraphics[width=0.9\textwidth]{mse-normal-6.png}
+\caption{MSE dla 6 pacjentów}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\includegraphics[width=1.0\textwidth]{training-normal-6.png}
+\caption{Zbiór treningowy, 6 pacjentów}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\includegraphics[width=1.0\textwidth]{test-normal-6.png}
+\caption{Zbiór testowy, 6 pacjentów}
+
+\end{figure}
+
+\newpage
+
 Na powyższych wykresach można zaobserwować, że dla małej ilości pacjentów i dużej ilości danych uczących sieć nie wykazuje problemów z uczeniem. Skuteczność predykcji w przypadku danych testowych jest na wysokim poziomie.
 
 \subsection{Dane z duplikatami próbek czasowych z dużą ilością pacjentów}
@@ -257,6 +325,56 @@ Parametry uczenia:
 \item Spread constant: $10$
 \end{itemize}
 
+\begin{figure}[h!]
+
+\centering
+\includegraphics[width=0.9\textwidth]{mse-normal-10.png}
+\caption{MSE dla 10 pacjentów}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\centering
+\includegraphics[width=1.1\textwidth]{training-normal-10.png}
+\caption{Zbiór treningowy, 10 pacjentów}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\centering
+\includegraphics[width=1.1\textwidth]{test-normal-10.png}
+\caption{Zbiór testowy, 10 pacjentów}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\centering
+\includegraphics[width=0.9\textwidth]{mse-normal-16.png}
+\caption{MSE dla 16 pacjentów}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\centering
+\includegraphics[width=1.1\textwidth]{training-normal-16.png}
+\caption{Zbiór treningowy, 16 pacjentów}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\centering
+\includegraphics[width=1.2\textwidth]{test-normal-16.png}
+\caption{Zbiór testowy, 16 pacjentów}
+
+\end{figure}
+
+\newpage
+
 Przy zwiększonej ilości pacjentów oraz dużej ilości danych uczących sieć wykazuje pewne problemy z nauką. Znacząco wydłuża się czas uczenia, można także zaobserwować pogorszenie jakości wykonywanej predykcji. Testy dla maksymalnej liczby pacjentów nie zostały wykonane ze względu na czas uczenia przekraczający kilka godzin.
 
 \subsection{Dane bez duplikatów próbek czasowych z małą ilością pacjentów}
@@ -264,33 +382,176 @@ Przy zwiększonej ilości pacjentów oraz dużej ilości danych uczących sieć 
 Parametry uczenia:
 \begin{itemize}
 \item Mean squared error: $10^{-9}$
-\item Spread constant: $1$
+\item Spread constant: $50$
 \end{itemize}
 
-Dla małej ilości pacjentów oraz zbioru uczącego nie zawierającego duplikatów sieć wykazuje niedopasowanie. Mała ilość danych uczących znacząco utrudnia naukę, co uniemożliwia wykonanie jakiejkolwiek predykcji.
+\begin{figure}[h!]
+
+\centering
+\includegraphics[width=1.0\textwidth]{mse-cut-2.png}
+\caption{MSE dla 2 pacjentów}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\centering
+\includegraphics[width=1.05\textwidth]{training-cut-2.png}
+\caption{Zbiór treningowy, 2 pacjentów}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\centering
+\includegraphics[width=1.0\textwidth]{test-cut-2.png}
+\caption{Zbiór testowy, 2 pacjentów}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\centering
+\includegraphics[width=1.0\textwidth]{mse-cut-10.png}
+\caption{MSE dla 10 pacjentów}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\centering
+\includegraphics[width=1.05\textwidth]{training-cut-10.png}
+\caption{Zbiór treningowy, 10 pacjentów}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\centering
+\includegraphics[width=1.0\textwidth]{test-cut-10.png}
+\caption{Zbiór testowy, 10 pacjentów}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\centering
+\includegraphics[width=0.9\textwidth]{mse-cut-20.png}
+\caption{MSE dla 20 pacjentów}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\centering
+\includegraphics[width=1.0\textwidth]{training-cut-20.png}
+\caption{Zbiór treningowy, 20 pacjentów}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\centering
+\includegraphics[width=1.1\textwidth]{test-cut-20.png}
+\caption{Zbiór testowy, 20 pacjentów}
+
+\end{figure}
+
+\newpage
+
+Dla małej ilości pacjentów oraz zbioru uczącego nie zawierającego duplikatów sieć wykazuje dopasowanie, choć widać błędy w predykcji pewnych klas pacjentów. Mała ilość danych uczących znacząco przyspiesza naukę, co pozwala na wykonanie predykcji w przypadku większej liczby pacjentów.
 
 \subsection{Dane bez duplikatów próbek czasowych z dużą ilością pacjentów}
 
 Parametry uczenia:
 \begin{itemize}
 \item Mean squared error: $10^{-9}$
-\item Spread constant: $1$
+\item Spread constant: $50$
 \end{itemize}
 
-Przy zwiększeniu liczby pacjentów dla danych nie zawierających duplikatów widać znaczne poprawienie szybkości nauki oraz dopasowania sieci. Nie wszystkie predykcje wykonywane są w pełni poprawnie, ale jest to rekompensowane szybkim czasem uczenia.
+\newpage
 
+\begin{figure}[h!]
+
+\centering
+\includegraphics[width=0.9\textwidth]{mse-cut-30.png}
+\caption{MSE dla 30 pacjentów}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\centering
+\includegraphics[width=1.05\textwidth]{training-cut-30.png}
+\caption{Zbiór treningowy, 30 pacjentów}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\centering
+\includegraphics[width=1.00\textwidth]{test-cut-30.png}
+\caption{Zbiór testowy, 30 pacjentów}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\centering
+\includegraphics[width=1.0\textwidth]{mse-cut-36.png}
+\caption{MSE dla 36 pacjentów}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\centering
+\includegraphics[width=1.1\textwidth]{training-cut-36.png}
+\caption{Zbiór treningowy, 36 pacjentów}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\centering
+\includegraphics[width=1.1\textwidth]{test-cut-36.png}
+\caption{Zbiór testowy, 36 pacjentów}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\centering
+\includegraphics[width=1.0\textwidth]{mse-cut-42.png}
+\caption{MSE dla 42 pacjentów}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\centering
+\includegraphics[width=1.0\textwidth]{training-cut-42.png}
+\caption{Zbiór treningowy, 42 pacjentów}
+
+\end{figure}
+
+\begin{figure}[h!]
+
+\centering
+\includegraphics[width=1.1\textwidth]{test-cut-42.png}
+\caption{Zbiór testowy, 42 pacjentów}
+
+\end{figure}
+
+Przy zwiększeniu liczby pacjentów dla danych nie zawierających duplikatów widać znaczne poprawienie szybkości nauki oraz dopasowania sieci w zbiorze testowym, jednak widoczne jest pogłębienie problemów w nauce zbioru uczącego. Nie wszystkie predykcje wykonywane są w pełni poprawnie, ale jest to rekompensowane szybkim czasem uczenia.
 
 \newpage
 \section{Wnioski}
 
-Kilka spostrzeżeń:
-
 \begin{itemize}
-\item gdy mamy nieokrojone dane łatwo jest nauczyć sieć dla małej ilości pacjentów, dla dużej natomiast trwa to bardzo długo i efekty są mizerne
-\item gdy mamy okrojone dane nie jest możliwe nauczenie sieci dla małej ilości pacjentów, dla dużej natomiast trwa to dość szybko, skuteczność natomiast jest średnia
-\item trzeba zebrać dużo screenshotów
-\item trzeba zweryfikować nabazgraną przeze mnie teorię, w szczególności backpropagation - nie jestem pewien, czy dokładnie taka postać jest wykorzystywana w RBF
-\item trzeba poprawić estetykę tego sprawka
+\item Przy użyciu danych z duplikatami sieć radialna nie ma problemów z nauką w przypadku małej ilości klas. Czas nauki jest dłuższy niż w przypadku danych bez duplikatów, dopasowanie sieci jest większe.
+\item Zwiększając liczbę klas i wykorzystując dane bez duplikatów czas uczenia osiąga duże wartości. Nie jest możliwa wizualizacja wyników dla maksymalnej liczby pacjentów.
+\item Przy użyciu danych bez duplikatów szybkość uczenia sieci radialnej znacząco maleje, umożliwiając w ten sposób wizualizację wyników dla maksymalnej liczby klas
 \end{itemize}
 
 \newpage
